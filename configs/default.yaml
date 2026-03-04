@@ -1,0 +1,31 @@
+# Default configuration for online DML experiments.
+
+dataset:
+  name: cifar100
+  num_classes: 100
+  mean: [0.5071, 0.4867, 0.4408]
+  std:  [0.2675, 0.2565, 0.2761]
+
+train:
+  epochs: 300
+  batch_size: 128
+  num_workers: 4
+  temperature: 3.0
+  seed: 0
+
+optimizer:
+  name: sgd
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  nesterov: true
+
+scheduler:
+  name: cosine
+  t_max: 300
+
+experiment:
+  arch: hetero            # hetero | homo
+  mode: dynamic_v17_11    # baseline | dynamic_* | adm | kdcl | okddip | odkd
+  save_dir: ./experiments
+  data_root: ./data
